@@ -1,0 +1,23 @@
+html, body {
+	height: 100%;
+}
+
+
+body {
+    background-image: url(../images/dark-background.jpg);
+    background-attachment: fixed;
+	font-family: Helvetica,Arial,sans-serif;
+	overflow-x: none;
+}
+
+/*header
+-------------------*/
+
+nav.transparent-navbar {
+    padding: 15px 0;
+	background: rgba(0, 0, 0, 0.151);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: #c5e700;
+}
