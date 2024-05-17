@@ -53,50 +53,104 @@
             </div>
         </nav>
     </header>
-    <section id="home" class="container mt-4">
-        <div class="row">
-            <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 1"></button>
-                    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"></button>
+    <section id="home-carousel">
+        <div  class="container" style="margin-top: 7rem;">
+            <div class="row">
+                <div id="home-carousel-indicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#home-carousel-indicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 1"></button>
+                        <button type="button" data-bs-target="#home-carousel-indicators" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#home-carousel-indicators" data-bs-slide-to="2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="8000">
+                            <img src="./images/carousel-slide-img-1.png" alt="..." class="d-block w-100">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="carousel-title-slide"></h5>
+                                <p class="carousel-text-slide"></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="6000">
+                            <img src="./images/carousel-slide-img-2.png" alt="..." class="d-block w-100">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="carousel-title-slide">Interactive chats</h5>
+                                <p class="carousel-text-slide">A lot of open chats to talk and meet new peoples</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="./images/carousel-slide-img-3.png" alt="..." class="d-block w-100">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="carousel-title-slide"></h5>
+                                <p class="carousel-text-slide">very easy to handle and create rooms</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#home-carousel-indicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#home-carousel-indicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="8000">
-                        <img src="./images/carousel-slide-img-1.png" alt="..." class="d-block w-100">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="carousel-title-slide"></h5>
-                            <p class="carousel-text-slide"></p>
-                        </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="6000">
-                        <img src="./images/carousel-slide-img-2.png" alt="..." class="d-block w-100">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="carousel-title-slide">Interactive chats</h5>
-                            <p class="carousel-text-slide">A lot of open chats to talk and meet new peoples</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="4000">
-                        <img src="./images/carousel-slide-img-3.png" alt="..." class="d-block w-100">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="carousel-title-slide"></h5>
-                            <p class="carousel-text-slide">very easy to handle and create rooms</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
     </section>
-    <section id="down-cards-home" class="container-fluid">
-        <div class="container" style="margin-top: 2rem; padding-right: 0;">
+    <section id="connect-form-home">
+        <div class="container" style="margin-top: 4rem;">
+            <div class="row">
+                <div class="col">
+                    <h1 class="form-home-text">Sign up if you don't have an account.</h1>
+                </div>
+                <div class="col">
+                    <div class="card form-card" style="width: 20rem;">
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nickname-text" class="form-label">Choose a nickname</label>
+                                    <input type="text" class="form-control" id="nickname-text" placeholder="nickname">
+                                  </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <button type="submit" class="btn btn-light btn-home-form">Submit</button>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <h1 class="form-home-text">Log in if you already have an account.</h1>
+                </div>
+                <div class="col">
+                    <div class="card form-card" style="width: 20rem;">
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                  <label for="inputNickname" class="form-label">Nickname</label>
+                                  <input type="text" class="form-control" id="inputNickname" aria-describedby="nicknameHelp">
+                                  <div id="nicknameHelp" class="form-text">Verify your nickname is correct before submit.</div>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="password" class="form-label">Password</label>
+                                  <input type="password" class="form-control" id="password">
+                                </div>
+                                <button type="submit" class="btn btn-light btn-home-form">Submit</button>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="informational-home-cars">
+        <div class="container" style="margin-top: 4rem;">
             <div class="row">
                 <div class="col d-flex justify-content-center">
                     <div class="card text-white home-card mb-3" style="max-width: 18rem;">
@@ -129,56 +183,32 @@
             </div>
         </div>
     </section>
-    <footer class="bg-body-tertiary text-center">
-        <div class="container p-4 pb-0">
-          <section class="mb-4">
-            <a
-            data-mdb-ripple-init
-              class="btn text-white btn-floating m-1"
-              style="background-color: #3b5998;"
-              href="#!"
-              role="button"
-              ><i class="fab fa-facebook-f"></i></a>
-            <a
-              data-mdb-ripple-init
-              class="btn text-white btn-floating m-1"
-              style="background-color: #55acee;"
-              href="#!"
-              role="button"
-              ><i class="fab fa-twitter"></i></a>
-            <a
-              data-mdb-ripple-init
-              class="btn text-white btn-floating m-1"
-              style="background-color: #dd4b39;"
-              href="#!"
-              role="button"
-              ><i class="fab fa-google"></i></a>
-            <a
-              data-mdb-ripple-init
-              class="btn text-white btn-floating m-1"
-              style="background-color: #ac2bac;"
-              href="#!"
-              role="button"
-              ><i class="fab fa-instagram"></i></a>
-            <a
-              data-mdb-ripple-init
-              class="btn text-white btn-floating m-1"
-              style="background-color: #0082ca;"
-              href="#!"
-              role="button"
-              ><i class="fab fa-linkedin-in"></i></a>
-            <a
-              data-mdb-ripple-init
-              class="btn text-white btn-floating m-1"
-              style="background-color: #333333;"
-              href="#!"
-              role="button"
-              ><i class="fab fa-github"></i></a>
-          </section>
+    <footer class="bg-body-tertiary text-center text-lg-start">
+        <div class="container p-4 pb-0 d-flex justify-content-center">
+          <form action="">
+            <div class="row">
+              <div class="col-auto mb-4 mb-md-0">
+                <p class="pt-2">
+                  <strong>Sign up for our newsletter</strong>
+                </p>
+              </div>
+              <div class="col-md-5 col-12 mb-4 mb-md-0">
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <input type="email" id="newsletter-form" class="form-control" />
+                  <label class="form-label" for="newsletter-form">Email address</label>
+                </div>
+              </div>
+              <div class="col-auto mb-4 mb-md-0">
+                <button data-mdb-ripple-init type="button" class="btn btn-light mb-4 btn-home-form">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-          © 2020 Copyright:
-          <scan>Rian dos Santos Barroso</scan>
+          © 2024 Copyright:
+          <span>Rian dos Santos Barroso</span>
         </div>
       </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
