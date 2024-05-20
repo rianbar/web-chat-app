@@ -16,7 +16,7 @@
   </head>
   <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark transparent-navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark transparent-navbar" id="navbar-home-id">
             <div class="container-fluid">
                 <a href="#" class="navbar-brand mb-0 h1">
                     <img src="images/webchat-icon.png" alt="" width="45" height="50" class="d-inline-block align-text-center">
@@ -29,23 +29,22 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active" aria-current="page">Home</a>
+                            <a href="#" class="nav-link active" aria-current="page"><i class="fa-solid fa-house"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">About</a>
+                            <a href="#aboutus-scrolling-id" class="nav-link active">About</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">Suport us</a>
+                            <a href="#supportus-scrolling-id" class="nav-link active">Suport us</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" 
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Enter or Sign up
                             </a>
-            
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a href="#" class="dropdown-item">Login</a></li>
-                                <li><a href="#" class="dropdown-item">Sign up</a></li>
+                                <li><a href="#login-scrolling-id" class="dropdown-item">Login</a></li>
+                                <li><a href="#signup-scrolling-id" class="dropdown-item">Sign up</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -97,11 +96,40 @@
             </div>
         </div>
     </section>
+    <section id="about-us-section">
+        <div class="container" data-bs-spy="scroll" data-bs-target="#navbar-home-id" style="margin-top: 4rem; color: white;">
+            <div class="row">
+                <div class="col">
+                    <h3 class="info-header" id="aboutus-scrolling-id">About us</h3>
+                    <h1 class="info-title">Helping business succeed through the power of video</h1>
+                    <p class="info-text">Etiam eget ultricies risus. Aliquam urna purus, finibus mollis nulla sed, tincidunt pretium nisi. Curabitur sed condimentum risus.
+                         Aenean faucibus tempus leo, ac egestas risus faucibus eget.
+                         Mauris ex leo, rhoncus ut tortor in, bibendum bibendum erat. Vestibulum at ligula eros.
+                          Mauris mauris lectus, luctus eget gravida ut, fringilla et lectus. Suspendisse in tempor libero, vel malesuada ante.
+                           Nunc fermentum hendrerit ex ut ullamcorper. Morbi ut est a magna rhoncus suscipit. </p>
+                </div>
+                <div class="col"><img src="./images/about-us.svg" alt="about-us-image"></div>
+            </div>
+            <div class="row" style="margin-top: 4rem;" data-bs-spy="scroll" data-bs-target="#navbar-home-id">
+                <div class="col"><img src="./images/credit-card.svg" alt="support-us-image"></div>
+                <div class="col" style="padding-top: 4rem;">
+                    <div>
+                    <h3 class="info-header" id="supportus-scrolling-id">Support us</h3>
+                    <h1 class="info-title"> Help us mantain our dream alive</h1>
+                    <p class="info-text">I am excited to share with you the launch of my new website, www.webchat.com.
+                         This platform is a culmination of my passion for technology,
+                          meet new people and help meeting each other and etc, I am thrilled to finally bring it to life, so, 
+                          please help me to keep that dream alive here <a href="#"><i class="fa-brands fa-paypal"></i></a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="connect-form-home">
         <div class="container" style="margin-top: 4rem;">
             <div class="row">
-                <div class="col">
-                    <h1 class="form-home-text">Sign up if you don't have an account.</h1>
+                <div class="col" data-bs-spy="scroll" data-bs-target="#navbar-home-id">
+                    <h1 class="form-home-text" id="signup-scrolling-id">Sign up if you don't have an account.</h1>
                 </div>
                 <div class="col">
                     <div class="card form-card" style="width: 20rem;">
@@ -125,8 +153,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <h1 class="form-home-text">Log in if you already have an account.</h1>
+                <div class="col" data-bs-spy="scroll" data-bs-target="#navbar-home-id">
+                    <h1 class="form-home-text" id="login-scrolling-id">Log in if you already have an account.</h1>
                 </div>
                 <div class="col">
                     <div class="card form-card" style="width: 20rem;">
@@ -149,41 +177,7 @@
             </div>
         </div>
     </section>
-    <section id="informational-home-cars">
-        <div class="container" style="margin-top: 4rem;">
-            <div class="row">
-                <div class="col d-flex justify-content-center">
-                    <div class="card text-white home-card mb-3" style="max-width: 18rem;">
-                        <div class="card-header"> social medias <i class="fa-solid fa-envelope"></i></div>
-                        <div class="card-body">
-                            <h5 class="card-title">@web_chat_official</h5>
-                            <p class="card-text">Follow us on our social medias to stay inside about all the new app features and a lot of news about technology.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card text-white home-card mb-3" style="max-width: 18rem;">
-                        <div class="card-header"> support us <i class="fa-solid fa-heart" style="color: red;"></i></div>
-                        <div class="card-body">
-                            <h5 class="card-title">your help is welcome</h5>
-                            <p class="card-text">Help us mantain the site on air with any value. Our paypal account is 
-                                <a href="#"><i class="fa-brands fa-paypal"></i></a>. Help us to keep the dream alive.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <div class="card text-white home-card mb-3" style="max-width: 18rem;">
-                        <div class="card-header"> news <i class="fa-solid fa-newspaper"></i></div>
-                        <div class="card-body">
-                            <h5 class="card-title">invite friends <span class="badge bg-primary">New</span></h5>
-                            <p class="card-text">Now, you can invite your friends to your room. Also, you can choose to create a public or private room.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="bg-body-tertiary text-center text-lg-start">
+    <footer class="bg-body-tertiary text-center text-lg-start" style="margin-top: 4rem;">
         <div class="container p-4 pb-0 d-flex justify-content-center">
           <form action="">
             <div class="row">
