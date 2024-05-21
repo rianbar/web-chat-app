@@ -1,3 +1,17 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: web-chat
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_web_chat?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
