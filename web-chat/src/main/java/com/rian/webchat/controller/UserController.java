@@ -1,5 +1,6 @@
 package com.rian.webchat.controller;
 
+import com.rian.webchat.dto.GetUserDTO;
 import com.rian.webchat.dto.PostUserDTO;
 import com.rian.webchat.model.UserModel;
 import com.rian.webchat.service.UserService;
@@ -26,6 +27,12 @@ public class UserController {
     @GetMapping("/getAll")
     public ResponseEntity<List<UserModel>> getAllUsersPath() {
         return ResponseEntity.status(HttpStatus.OK).body(userService.getAllUsers());
+    }
+
+    @GetMapping("/login")
+    public void getUserByNicknamePath(@RequestBody @Valid GetUserDTO dto) {
+        userService.getUserByNicknameService(dto);
+        ResponseEntity.status(HttpStatus.OK);
     }
 
     @PostMapping("/save")
