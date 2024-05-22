@@ -159,15 +159,15 @@
                 <div class="col">
                     <div class="card form-card" style="width: 20rem;">
                         <div class="card-body">
-                            <form>
+                            <form id="login-form">
                                 <div class="mb-3">
                                   <label for="inputNickname" class="form-label">Nickname</label>
-                                  <input type="text" class="form-control" id="inputNickname" aria-describedby="nicknameHelp">
+                                  <input type="text" name="nickname" class="form-control" id="inputNickname" aria-describedby="nicknameHelp">
                                   <div id="nicknameHelp" class="form-text">Verify your nickname is correct before submit.</div>
                                 </div>
                                 <div class="mb-3">
                                   <label for="password" class="form-label">Password</label>
-                                  <input type="password" class="form-control" id="password">
+                                  <input type="password" name="password" class="form-control" id="password">
                                 </div>
                                 <button type="submit" id="login-btn" class="btn btn-light btn-home-form">Submit</button>
                               </form>

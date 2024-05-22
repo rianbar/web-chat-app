@@ -5,11 +5,24 @@ import com.rian.webchat.errors.UserAlreadyExistsException;
 import com.rian.webchat.errors.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+
 @ControllerAdvice
 public class GlobalExceptions {
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Object> getPayloadValidationViolationException(MethodArgumentNotValidException exp) {
+        int code = HttpStatus.BAD_REQUEST.value();
+        String status = HttpStatus.BAD_REQUEST.toString();
+        String message = "all fields must be filled!";
+
+        var response = ResponseErrorTemplate.builder().code(code).status(status).message(message).build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
 
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<Object> userNotFoundGlobalHandler(UserNotFoundException exp) {

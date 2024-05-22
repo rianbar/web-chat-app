@@ -2,6 +2,7 @@ package com.rian.webchat.controller;
 
 import com.rian.webchat.dto.GetUserDTO;
 import com.rian.webchat.dto.PostUserDTO;
+import com.rian.webchat.dto.SuccessResponseDTO;
 import com.rian.webchat.model.UserModel;
 import com.rian.webchat.service.UserService;
 import jakarta.validation.Valid;
@@ -29,14 +30,17 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userService.getAllUsers());
     }
 
-    @GetMapping("/login")
-    public void getUserByNicknamePath(@RequestBody @Valid GetUserDTO dto) {
+    @PostMapping("/login")
+    public ResponseEntity<Object> getUserByNicknamePath(@RequestBody @Valid GetUserDTO dto) {
         userService.getUserByNicknameService(dto);
-        ResponseEntity.status(HttpStatus.OK);
+        return ResponseEntity.status(HttpStatus.OK).body(new SuccessResponseDTO(HttpStatus.OK.value()
+                , "success"));
     }
 
     @PostMapping("/save")
-    public ResponseEntity<UserModel> saveUserPath(@RequestBody @Valid PostUserDTO dto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUserService(dto));
+    public ResponseEntity<Object> saveUserPath(@RequestBody @Valid PostUserDTO dto) {
+        userService.saveUserService(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(new SuccessResponseDTO(HttpStatus.CREATED.value()
+                , "success"));
     }
 }

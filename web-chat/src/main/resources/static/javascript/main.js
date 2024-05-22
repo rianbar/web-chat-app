@@ -1,20 +1,17 @@
 var getSignupBtn = document.querySelector("#signup-btn")
 var getLoginBtn = document.querySelector("#login-btn");
 var getSignupForm = document.querySelector("#singup-form").elements;
+var getLoginForm  = document.querySelector("#login-form").elements;
 
-function sendForm(event) {
+async function postUser(event) {
     event.preventDefault();
 
-    const bodyObj = {
+    const body = {
         nickname: getSignupForm["nickname"].value,
         email: getSignupForm["email"].value,
         password: getSignupForm["password"].value
     }
 
-    postUser(bodyObj);
-}
-
-async function postUser(body) {
     try {
         const response = await fetch("/user/save", {
             method: "POST",
@@ -31,5 +28,30 @@ async function postUser(body) {
     }
 }
 
+async function getUser(event) {
+    event.preventDefault();
+    
+    const body = {
+        nickname: getLoginForm["nickname"].value,
+        password: getLoginForm["password"].value
+    }
 
-getSignupBtn.addEventListener("click", sendForm);
+    try {
+        const response = await fetch("/user/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
+        })
+
+        const result = await response.json();
+        console.log("Success: ", result);
+    } catch(error) {
+        console.log("Error: ", error);
+    }
+}
+
+
+getSignupBtn.addEventListener("click", postUser);
+getLoginBtn.addEventListener("click", getUser);
