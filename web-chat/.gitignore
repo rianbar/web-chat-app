@@ -15,13 +15,12 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+.mvn
 *.iws
 *.iml
 *.ipr
-.mvn
 mvnw
 mvnw.cmd
-.web-chat-app.iml
 
 ### NetBeans ###
 /nbproject/private/
