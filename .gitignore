@@ -5,7 +5,7 @@ out/
 !**/.mvn/
 !**/mvnw
 !**/mvnw.cmd
-web-chat-app.iml
+.web-chat-app.iml
 
 
 ### Eclipse ###
