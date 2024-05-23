@@ -38,7 +38,7 @@ public class UserService {
 
     public void saveUserService(PostUserDTO dto) {
         if (repository.findByNickname(dto.getNickname()).isPresent()) {
-            throw new UserAlreadyExistsException("user already exists, try another!");
+            throw new UserAlreadyExistsException("nickname already exists, try another!");
         }
         var userToSave = parseDTO(dto);
         repository.save(userToSave);
