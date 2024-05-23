@@ -20,6 +20,15 @@ nav.transparent-navbar {
 	color: #e7bd00;
 }
 
+.dropdown-header {
+	color: white;
+}
+
+.dropdown-header:hover {
+	font-weight:600;
+	color: #e7bd00;
+}
+
 /* home-carousel
 ---------------------*/
 
