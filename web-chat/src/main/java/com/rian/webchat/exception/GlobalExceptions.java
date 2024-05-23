@@ -9,6 +9,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.Objects;
+
 
 @ControllerAdvice
 public class GlobalExceptions {
@@ -17,7 +19,7 @@ public class GlobalExceptions {
     public ResponseEntity<Object> getPayloadValidationViolationException(MethodArgumentNotValidException exp) {
         int code = HttpStatus.BAD_REQUEST.value();
         String status = HttpStatus.BAD_REQUEST.toString();
-        String message = "all fields must be filled!";
+        String message = Objects.requireNonNull(exp.getFieldError()).getDefaultMessage();
 
         var response = ResponseErrorTemplate.builder().code(code).status(status).message(message).build();
 

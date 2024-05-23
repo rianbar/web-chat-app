@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class GetUserDTO {
-    @NotBlank
+    @NotBlank(message = "all fields must be filled!")
     private String nickname;
-    @NotBlank
+    @NotBlank(message = "all fields must be filled!")
     private String password;
 }
