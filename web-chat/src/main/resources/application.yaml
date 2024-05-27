@@ -1,6 +1,11 @@
 server:
   port: 8080
 
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:j13Nv0+v4Ylp70ir9d4wrA==}
+
 spring:
   application:
     name: web-chat

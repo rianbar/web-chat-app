@@ -1,13 +1,14 @@
 package com.rian.webchat.service;
 
-import com.rian.webchat.dto.GetUserDTO;
-import com.rian.webchat.dto.PostUserDTO;
+import com.rian.webchat.configuration.TokenService;
+import com.rian.webchat.dto.*;
 import com.rian.webchat.errors.InvalidCredentialsException;
 import com.rian.webchat.errors.UserAlreadyExistsException;
 import com.rian.webchat.errors.UserNotFoundException;
 import com.rian.webchat.model.UserModel;
 import com.rian.webchat.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,39 +17,45 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository repository;
+    private final TokenService tokenService;
 
     @Autowired
-    UserService(UserRepository repository) {
+    UserService(UserRepository repository, TokenService tokenService) {
         this.repository = repository;
+        this.tokenService = tokenService;
     }
 
     public List<UserModel> getAllUsers() {
         return repository.findAll();
     }
 
-    public void getUserByNicknameService(GetUserDTO dto) {
+    public Object loginUserService(GetUserDTO dto) {
         var user = repository.findByNickname(dto.getNickname());
         if (user.isPresent()) {
             if (!matchUserPasswords(user.get().getPassword(), dto.getPassword()))
                 throw new InvalidCredentialsException("your password is wrong!");
+            String token = tokenService.generateToken(user.get());
+            return new LoginUserResponseDTO(HttpStatus.OK.value(), token);
         } else {
             throw new UserNotFoundException("user doesn't exists!");
         }
     }
 
-    public void saveUserService(PostUserDTO dto) {
+    public Object saveUserService(PostUserDTO dto) {
         if (repository.findByNickname(dto.getNickname()).isPresent()) {
             throw new UserAlreadyExistsException("nickname already exists, try another!");
         }
-        var userToSave = parseDTO(dto);
+        var userToSave = parseToModel(dto);
         repository.save(userToSave);
+        return new CreateUserResponseDTO(HttpStatus.CREATED.value(), "success");
     }
 
-    private UserModel parseDTO(PostUserDTO dto) {
+    private UserModel parseToModel(PostUserDTO dto) {
         return UserModel.builder()
                 .email(dto.getEmail())
                 .nickname(dto.getNickname())
                 .password(dto.getPassword())
+                .role(UserRole.USER)
                 .build();
     }
 

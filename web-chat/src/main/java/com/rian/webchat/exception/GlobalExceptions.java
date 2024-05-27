@@ -1,5 +1,6 @@
 package com.rian.webchat.exception;
 
+import com.rian.webchat.errors.AuthenticationException;
 import com.rian.webchat.errors.InvalidCredentialsException;
 import com.rian.webchat.errors.UserAlreadyExistsException;
 import com.rian.webchat.errors.UserNotFoundException;
@@ -57,5 +58,16 @@ public class GlobalExceptions {
         var response = ResponseErrorTemplate.builder().code(code).status(status).message(message).build();
 
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Object> authenticationExceptionGlobalHandler(RuntimeException exp) {
+        int code = HttpStatus.INTERNAL_SERVER_ERROR.value();
+        String status = HttpStatus.INTERNAL_SERVER_ERROR.toString();
+        String message = "internal server error!";
+
+        var response = ResponseErrorTemplate.builder().code(code).status(status).message(message).build();
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 }

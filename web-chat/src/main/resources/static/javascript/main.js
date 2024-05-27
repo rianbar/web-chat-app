@@ -7,13 +7,7 @@ var getLoginDanger  = document.querySelector("#login-danger");
 var getLoginDangerText  = document.querySelector("#login-danger-text");
 var getSignupDangerText  = document.querySelector("#signup-danger-text");
 
-
-
-function createDangerIcon() {
-    var i = document.createElement("i");
-    i.className = "fa-solid fa-circle-exclamation";
-    return i;
-}
+var bearerToken = null;
 
 async function postUser(event) {
     event.preventDefault();
@@ -68,8 +62,9 @@ async function getUser(event) {
         if (result["code"] != 200) {
             getLoginDangerText.innerHTML = result["message"];
             getLoginDanger.classList.remove("hidden");
+        } else {
+            bearerToken = result["token"];
         }
-
     } catch(error) {
         console.log("Error: ", error);
     }
