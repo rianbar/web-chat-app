@@ -31,7 +31,7 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/user/getAll").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/user/getAll").hasAuthority("ADMIN")
                         .anyRequest().permitAll()
                 ).addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
