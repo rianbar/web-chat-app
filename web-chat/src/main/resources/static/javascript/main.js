@@ -33,7 +33,7 @@ async function postUser(event) {
         if (result["code"] != 201) {
             getSignupDangerText.innerHTML = result["message"];
             getSignupDanger.classList.remove("hidden");
-        }
+        } 
     } catch(error) {
         console.log("Error: ", error);
     }
@@ -64,6 +64,9 @@ async function getUser(event) {
             getLoginDanger.classList.remove("hidden");
         } else {
             bearerToken = result["token"];
+            localStorage.setItem("token", bearerToken);
+            window.location.replace("/rooms");
+        
         }
     } catch(error) {
         console.log("Error: ", error);

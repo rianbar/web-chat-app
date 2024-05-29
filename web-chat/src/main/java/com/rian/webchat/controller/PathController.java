@@ -15,4 +15,9 @@ public class PathController {
     public String redirectToHome() {
         return "redirect:/home";
     }
+
+    @GetMapping("/rooms")
+    public String chatHomePath() {
+        return "chatPage.html";
+    }
 }
