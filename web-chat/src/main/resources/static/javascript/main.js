@@ -12,6 +12,7 @@ var bearerToken = null;
 async function postUser(event) {
     event.preventDefault();
     getSignupDanger.classList.add("hidden");
+    getLoginDanger.classList.add("hidden");
 
     const body = {
         nickname: getSignupForm["nickname"].value,
@@ -41,6 +42,7 @@ async function postUser(event) {
 
 async function getUser(event) {
     event.preventDefault();
+    getSignupDanger.classList.add("hidden");
     getLoginDanger.classList.add("hidden");
     
     const body = {
