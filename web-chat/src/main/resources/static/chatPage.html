@@ -10,40 +10,38 @@
     <title>Chat Room</title>
 </head>
 <body>
-    <div style="margin-top: 5rem;">
-        <div id="row-header" class="row">
-            <div class="col">
-                <nav id="chat-header" class="navbar navbar-expand-lg navbar-light">
-                    <div class="container-fluid">
-                        <a href="#offCanvaPerfil" class="navbar-brand">Imagem <span>Nome do Usuário</span></a>
-                        <button type="button" class="btn btn-outline-danger"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
-                    </div>
-                </nav>
+    <div id="title-chat">
+        <h1>Chat Room <i class="fa-solid fa-user-group"></i></h1>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <div id="aba-user">
+    
             </div>
         </div>
-        <div id="row-chat" class="row">
-            <div id="col-chat" class="col">
-                <div class="connecting hidden"><i class="fas fa-sync fa-spin fa-3x"></i></div>
-                <div id="chat-div">
-                    <div class="hidden" style="height: 92%;">
-                        <ul id="message-area">
-                            
-                        </ul>
-                    </div>
-                    <form id="messageForm" name="messageForm">
-                        <div class="form-group" style="padding-top: 3px;">
-                            <div class="input-group clearfix">
-                                <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
-                                <button type="submit" id="send-message-btn" class="btn btn-danger"><i class="fa-solid fa-paper-plane"></i></button>
+        <div class="col d-flex justify-content-center">
+            <div id="chat-container">
+                <div id="connect-container" class="hidden">
+                    <button type="submit" class="btn btn-danger" id="btn-connect">press to connect <i class="fa-solid fa-power-off"></i></button>
+                </div>
+                <div id="chat-field">
+                    <ul id="message-area">
+
+                    </ul>
+                    <div id="sender-container">
+                        <form id="messageForm" name="messageForm">
+                            <div class="form-group">
+                                <div class="input-group clearfix">
+                                    <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                                    <button type="submit" class="btn btn-primary" id="btn-sender"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div> 
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js" integrity="sha512-1QvjE7BtotQjkq8PxLeF6P46gEpBRXuskzIVgjFpekzFVF4yjRgrQvTG1MTOJ3yQgvTteKAcO7DSZI92+u/yZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./javascript/socketCon.js"></script>

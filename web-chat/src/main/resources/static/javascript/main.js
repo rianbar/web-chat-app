@@ -42,11 +42,14 @@ async function postUser(event) {
 
 async function getUser(event) {
     event.preventDefault();
+
+    var username = getLoginForm["nickname"].value;
+
     getSignupDanger.classList.add("hidden");
     getLoginDanger.classList.add("hidden");
     
     const body = {
-        nickname: getLoginForm["nickname"].value,
+        nickname: username,
         password: getLoginForm["password"].value
     }
 
@@ -65,8 +68,8 @@ async function getUser(event) {
             getLoginDangerText.innerHTML = result["message"];
             getLoginDanger.classList.remove("hidden");
         } else {
-            bearerToken = result["token"];
-            localStorage.setItem("token", bearerToken);
+            localStorage.setItem("username", username);
+            localStorage.setItem("token", result["token"]);
             window.location.replace("/rooms");
         
         }
@@ -74,7 +77,6 @@ async function getUser(event) {
         console.log("Error: ", error);
     }
 }
-
 
 getSignupBtn.addEventListener("click", postUser);
 getLoginBtn.addEventListener("click", getUser);
