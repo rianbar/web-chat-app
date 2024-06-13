@@ -16,7 +16,34 @@
     <div class="row">
         <div class="col d-flex justify-content-center">
             <div id="aba-user">
-    
+                <div id="user-info" style="border: 1px solid red;">
+
+                </div>
+                <div id="utilities-container">
+                    <div id="settings" style="margin-bottom: 1rem;">
+                        <button type="button" class="btn"><i class="fa fa-cog fa-lg utilities" aria-hidden="true"></i> Settings</button>
+                    </div>
+                    <div id="logout">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#logout-warning"><i class="fa fa-sign-out fa-lg utilities" aria-hidden="true" style="color: rgb(179, 0, 0);"></i> Logout</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="logout-warning" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Logout Warning</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Do you really want to exit?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Return</button>
+                      <button type="button" class="btn btn-primary">Logout</button>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
         <div class="col d-flex justify-content-center">
@@ -42,6 +69,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js" integrity="sha512-1QvjE7BtotQjkq8PxLeF6P46gEpBRXuskzIVgjFpekzFVF4yjRgrQvTG1MTOJ3yQgvTteKAcO7DSZI92+u/yZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js" integrity="sha512-iKDtgDyTHjAitUDdLljGhenhPwrbBfqTKWO1mkhSFH3A7blITC9MhYon6SjnMhp4o0rADGw9yAC6EW4t5a4K3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./javascript/socketCon.js"></script>
