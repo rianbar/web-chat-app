@@ -16,8 +16,14 @@
     <div class="row">
         <div class="col d-flex justify-content-center">
             <div id="aba-user">
-                <div id="user-info" style="border: 1px solid red;">
-
+                <div id="user-info">
+                    <div class="row h-50 align-items-center">
+                        <div class="col-4 d-flex justify-content-center"><i id="user-image">r</i></div>
+                        <div class="col-4" id="username-field"><h4>username here</h4></div>
+                    </div>
+                    <div class="container" id="connection-status" style="height: 2rem;">
+                        <i class="fa-solid fa-tower-cell"></i> <span>offline</span>
+                    </div>
                 </div>
                 <div id="utilities-container">
                     <div id="settings" style="margin-bottom: 1rem;">
@@ -48,7 +54,7 @@
         </div>
         <div class="col d-flex justify-content-center">
             <div id="chat-container">
-                <div id="connect-container" class="hidden">
+                <div id="connect-container" class="">
                     <button type="submit" class="btn btn-danger" id="btn-connect">press to connect <i class="fa-solid fa-power-off"></i></button>
                 </div>
                 <div id="chat-field">
