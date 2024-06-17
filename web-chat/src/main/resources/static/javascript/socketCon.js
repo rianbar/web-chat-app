@@ -1,7 +1,12 @@
 'user strict';
 
 var getMessageArea = document.querySelector("#message-area");
-
+var connectBtn = document.querySelector("#btn-connect");
+var connectButtonField = document.querySelector("#connect-container");
+var connectingIcon = document.querySelector("#connecting-icon");
+var errorMessage = document.querySelector("#error-message");
+var connectionStatus = document.getElementById("connection-status")
+var statusName = document.querySelector("#status");
 
 
 var stompClient = null;
@@ -14,7 +19,6 @@ var colors = [
 
 function connect(event) {
     username = localStorage.getItem("username");
-    console.log("username");
 
     if (username) {
 
@@ -22,5 +26,38 @@ function connect(event) {
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);
+
+        connectButtonField.classList.add("hidden");
+        connectingIcon.classList.remove("hidden");
     }
 }
+
+function onConnected() {
+    stompClient.subscribe("/topic/public", onMessageReceived);
+
+    stompClient.send("/app/chat.AddUser",
+        {},
+        JSON.stringify({sender: username, type: "JOIN"})
+    )
+
+    connectingIcon.classList.add("hidden");
+    connectionStatus.style.color = 'green';
+    statusName.innerHTML = "online";
+}
+
+function onError(error) {
+    connectingIcon.classList.add("hidden");
+    errorMessage.classList.remove("hidden");
+    connectionStatus.style.color = 'red';
+    statusName.innerHTML = "offline";
+}
+
+
+function onMessageReceived(payload) {
+
+}
+
+
+
+
+connectBtn.addEventListener("click", connect, true);

@@ -35,12 +35,22 @@ body {
     height: 90%;
 }
 
-#connect-container {
+#connect-container, #error-message {
     position: absolute;
     display: flex;
     justify-content: center;
     margin-left: 5.5rem ;
     margin-top: 16rem;
+}
+
+#connecting-icon {
+    position:absolute;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-left: 10rem ;
+    margin-top: 16rem;
+    color: #2f5475;
 }
 
 .btn-style {
@@ -158,7 +168,7 @@ body {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-#connection-status i, span {
+#connection-status {
     color: red;
 }
 

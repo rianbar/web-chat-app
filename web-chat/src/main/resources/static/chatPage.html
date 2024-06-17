@@ -22,7 +22,7 @@
                         <div class="col-4" id="username-field"><h4>username here</h4></div>
                     </div>
                     <div class="container" id="connection-status" style="height: 2rem;">
-                        <i class="fa-solid fa-tower-cell"></i> <span>offline</span>
+                        <i class="fa-solid fa-tower-cell"></i> <span id="status">offline</span>
                     </div>
                 </div>
                 <div id="utilities-container">
@@ -54,9 +54,13 @@
         </div>
         <div class="col d-flex justify-content-center">
             <div id="chat-container">
-                <div id="connect-container" class="">
+                <div id="connect-container">
                     <button type="submit" class="btn-style" id="btn-connect">press to connect <i class="fa-solid fa-power-off"></i></button>
                 </div>
+                <div id="connecting-icon" class="hidden">
+                    <i class="fas fa-3x fa-spinner fa-pulse" id="connecting-btn"></i>
+                </div>
+                <div id="error-message" style="color: red; width: 15rem;" class="hidden">Something went wrong, <br>please try again later!</div>
                 <div id="chat-field">
                     <ul id="message-area">
 
