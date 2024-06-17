@@ -24,18 +24,3 @@ function connect(event) {
         stompClient.connect({}, onConnected, onError);
     }
 }
-
-function onConnected() {
-    stompClient.subscribe("/topic/public", onMessageReceived);
-
-    stompClient.send("/app/chat.addUser",
-                    {},
-                    JSON.stringify({sender: username, type: "JOIN"}));
-
-    
-
-}
-
-function onError() {
-
-}

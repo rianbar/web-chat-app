@@ -198,6 +198,16 @@ body {
     box-shadow: none;
 }
 
+.modal-content {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.modal-title {
+    text-transform: uppercase;
+    color: #ff7300;
+}
+
 .hidden {
     visibility: hidden;
 }
