@@ -7,6 +7,9 @@ var connectingIcon = document.querySelector("#connecting-icon");
 var errorMessage = document.querySelector("#error-message");
 var connectionStatus = document.getElementById("connection-status")
 var statusName = document.querySelector("#status");
+var messageForm = document.getElementById("messageForm")
+var usernameField = document.querySelector("#username-field");
+var userImage = document.querySelector("#user-image");
 
 
 var stompClient = null;
@@ -35,7 +38,7 @@ function connect(event) {
 function onConnected() {
     stompClient.subscribe("/topic/public", onMessageReceived);
 
-    stompClient.send("/app/chat.AddUser",
+    stompClient.send("/app/chat.addUser",
         {},
         JSON.stringify({sender: username, type: "JOIN"})
     )
@@ -45,12 +48,27 @@ function onConnected() {
     statusName.innerHTML = "online";
 }
 
-function onError(error) {
+function onError() {
     connectingIcon.classList.add("hidden");
     errorMessage.classList.remove("hidden");
     connectionStatus.style.color = 'red';
     statusName.innerHTML = "offline";
-    console.log("error");
+}
+
+function sendMessage(event) {
+    var messageContent = messageInput.value.trim();
+    if(messageContent && stompClient) {
+        var chatMessage = {
+            sender: username,
+            content: messageInput.value,
+            type: "CHAT"
+        }
+
+        stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+        messageInput.value = '';
+    }
+
+    event.preventDefault();
 }
 
 
@@ -62,6 +80,8 @@ function onMessageReceived(payload) {
     if(message.type === "JOIN") {
         messageElement.classList.add("event-message");
         message.content = message.sender + " joined!";
+        usernameField.innerHTML = message.sender;
+        userImage.innerHTML = message.sender[0];
     } else if (message.type === "LEAVE") {
         messageElement.classList.add("event-message");
         message.content = message.sender + " left!";
@@ -105,3 +125,5 @@ function getAvatarColor(messageSender) {
 
 
 connectBtn.addEventListener("click", connect, true);
+messageForm.addEventListener("submit", sendMessage);
+
