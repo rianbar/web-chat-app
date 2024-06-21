@@ -10,6 +10,7 @@ var statusName = document.querySelector("#status");
 var messageForm = document.getElementById("messageForm")
 var usernameField = document.querySelector("#username-field");
 var userImage = document.querySelector("#user-image");
+var messageInput = document.querySelector("#message");
 
 
 var stompClient = null;
@@ -33,6 +34,8 @@ function connect(event) {
         connectButtonField.classList.add("hidden");
         connectingIcon.classList.remove("hidden");
     }
+
+    event.preventDefault();
 }
 
 function onConnected() {
@@ -54,23 +57,6 @@ function onError() {
     connectionStatus.style.color = 'red';
     statusName.innerHTML = "offline";
 }
-
-function sendMessage(event) {
-    var messageContent = messageInput.value.trim();
-    if(messageContent && stompClient) {
-        var chatMessage = {
-            sender: username,
-            content: messageInput.value,
-            type: "CHAT"
-        }
-
-        stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
-        messageInput.value = '';
-    }
-
-    event.preventDefault();
-}
-
 
 function onMessageReceived(payload) {
     var message = JSON.parse(payload.body);
@@ -125,5 +111,19 @@ function getAvatarColor(messageSender) {
 
 
 connectBtn.addEventListener("click", connect, true);
-messageForm.addEventListener("submit", sendMessage);
+
+messageForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    var messageContent = messageInput.value.trim();
+    if(messageContent && stompClient) {
+        var chatMessage = {
+            sender: username,
+            content: messageInput.value,
+            type: "CHAT"
+        }
+
+        stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+        messageInput.value = '';
+    }
+}, true);
 
