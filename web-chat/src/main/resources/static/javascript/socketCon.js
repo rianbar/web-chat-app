@@ -60,15 +60,16 @@ function onError() {
 
 function onMessageReceived(payload) {
     var message = JSON.parse(payload.body);
+    var usernameLocal = localStorage.getItem("username");
 
     var messageElement = document.createElement("li");
 
     if(message.type === "JOIN") {
         messageElement.classList.add("event-message");
         message.content = message.sender + " joined!";
-        usernameField.innerHTML = message.sender;
-        userImage.innerHTML = message.sender[0];
-    } else if (message.type === "LEAVE") {
+        usernameField.innerHTML = usernameLocal;
+        userImage.innerHTML = usernameLocal[0];
+        } else if (message.type === "LEAVE") {
         messageElement.classList.add("event-message");
         message.content = message.sender + " left!";
     } else {
