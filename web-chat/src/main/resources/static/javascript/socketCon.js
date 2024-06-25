@@ -102,11 +102,10 @@ function onMessageReceived(payload) {
 
 function getAvatarColor(messageSender) {
     var hash = 0;
-    for (var i = 0; i < messageSender.lenght; i++) {
+    for (var i = 0; i < messageSender.length; i++) {
         hash = 31 * hash + messageSender.charCodeAt(i);
     }
-
-    var index = Math.abs(hash % colors.lenght);
+    var index = Math.abs(hash % colors.length);
     return colors[index];
 }
 

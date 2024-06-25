@@ -228,7 +228,6 @@ chat field
 */
 
 #message-area {
-    border: 1px solid green;
     height: 90%;
     list-style-type: none;
     background-color: #FFF;
@@ -246,7 +245,8 @@ chat field
 }
 
 #message-area li p{
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .event-message {
@@ -261,6 +261,9 @@ chat field
     word-wrap: break-word;
 }
 
+/*------------>
+CHAT MESSAGE
+*/
 .message-field {
     padding-left: 68px;
     position: relative;
@@ -286,10 +289,12 @@ chat field
 .message-field span {
     color: #333;
     font-weight: 600;
+    display: block;
+    margin-left: 36px;
 }
 
 .message-field p {
     color: #43464b;
+    display: block;
+    margin-left: 36px;
 }
-
-
