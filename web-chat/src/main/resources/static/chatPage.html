@@ -18,7 +18,7 @@
         <div id="aba-user">
             <div id="user-info">
                 <div class="row h-50 align-items-center">
-                    <div class="col-4 d-flex justify-content-center"><i id="user-image"></i></div>
+                    <div class="col-4 d-flex justify-content-center" id="user-image"></div>
                     <div class="col-4" id="username-field"><h4></h4></div>
                 </div>
                 <div class="container" id="connection-status" style="height: 2rem;">
@@ -65,14 +65,17 @@
                 <ul id="message-area">
 
                 </ul>
-                <form id="messageForm" name="messageForm">
-                    <div class="form-group">
-                        <div class="input-group clearfix">
-                            <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control" required/>
-                            <button type="submit" class="btn btn-primary" id="btn-sender"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                <div>
+                    <form id="messageForm" name="messageForm">
+                        <div class="form-group">
+                            <div class="input-group clearfix">
+                                <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control" required/>
+                                <button type="submit" class="btn btn-primary" id="btn-sender"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>

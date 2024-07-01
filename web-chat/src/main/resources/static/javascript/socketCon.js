@@ -9,7 +9,7 @@ var connectionStatus = document.getElementById("connection-status")
 var statusName = document.querySelector("#status");
 var messageForm = document.getElementById("messageForm")
 var usernameField = document.querySelector("#username-field");
-var userImage = document.querySelector("#user-image");
+var userImage = document.getElementById("user-image");
 var messageInput = document.querySelector("#message");
 
 
