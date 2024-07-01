@@ -76,11 +76,7 @@ function onMessageReceived(payload) {
         messageElement.classList.add("message-field");
         
         //avatar
-        var avatarElement = document.createElement("i");
-        var avatarText = document.createTextNode(message.sender[0]);
-        avatarElement.appendChild(avatarText);
-        avatarElement.style["background-color"] = getAvatarColor(message.sender);
-        messageElement.appendChild(avatarElement);
+        messageElement.appendChild(createAvatar(message));
 
         //username
         var usernameElement = document.createElement("span");
@@ -98,6 +94,15 @@ function onMessageReceived(payload) {
     //insert message
     getMessageArea.appendChild(messageElement);
     getMessageArea.scrollTop = getMessageArea.scrollHeight;
+}
+
+function createAvatar(message) {
+    var avatarElement = document.createElement("i");
+    var avatarText = document.createTextNode(message.sender[0]);
+    avatarElement.appendChild(avatarText);
+    avatarElement.style["background-color"] = getAvatarColor(message.sender);
+
+    return avatarElement;
 }
 
 function getAvatarColor(messageSender) {
