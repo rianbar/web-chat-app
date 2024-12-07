@@ -7,23 +7,20 @@ import com.rian.webchat.errors.UserAlreadyExistsException;
 import com.rian.webchat.errors.UserNotFoundException;
 import com.rian.webchat.model.UserModel;
 import com.rian.webchat.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository repository;
     private final TokenService tokenService;
-
-    @Autowired
-    UserService(UserRepository repository, TokenService tokenService) {
-        this.repository = repository;
-        this.tokenService = tokenService;
-    }
 
     public List<UserModel> getAllUsers() {
         return repository.findAll();

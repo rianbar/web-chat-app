@@ -1,6 +1,5 @@
 package com.rian.webchat.exception;
 
-import com.rian.webchat.errors.AuthenticationException;
 import com.rian.webchat.errors.InvalidCredentialsException;
 import com.rian.webchat.errors.UserAlreadyExistsException;
 import com.rian.webchat.errors.UserNotFoundException;
